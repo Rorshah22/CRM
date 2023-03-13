@@ -1,5 +1,6 @@
 <?php
 
 return [
-    '~^$~' => [\Core\Controllers\AbstractController::class, 'action'],
+    '~^$~' => [\Core\Controllers\MainController::class, 'main'],
+    '~^request$~' => [\Core\Controllers\RequestController::class, 'request']
 ];
