@@ -4,19 +4,19 @@
 <form action="/request" method="post">
     <div class="mb-3">
     <label class="form-label" for="name">Имя</label>
-    <input class="form-control" type="text" name="name" id="name">
+    <input class="form-control" type="text" name="name" id="name"  required>
     </div>
     <div class="mb-3">
-    <label class="form-label" for="last-name">Фамилия</label>
-    <input class="form-control" type="text" name="last-name" id="last-name">
+    <label class="form-label" for="lastName">Фамилия</label>
+    <input class="form-control" type="text" name="lastName" id="lastName"  required>
     </div>
     <div class="mb-3">
     <label class="form-label" for="phone">Телефон</label>
-    <input class="form-control" type="tel" name="phone" id="phone">
+    <input class="form-control" type="tel" name="phone" id="phone" required>
     </div>
     <div class="mb-3">
     <label class="form-label" for="email">Email</label>
-    <input class="form-control" type="email" name="email" id="email">
+    <input class="form-control" type="email" name="email" id="email"  required>
     </div>
     <div class="mb-3">
         <input class="btn btn-primary" type="submit" value="Отправить">
