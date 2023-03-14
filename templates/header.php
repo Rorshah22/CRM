@@ -13,5 +13,5 @@
 
  </header>
     <main >
-
+        <div style="max-width: 1000px; margin: 50px auto">
 

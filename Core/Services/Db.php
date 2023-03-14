@@ -12,10 +12,10 @@ class Db
     private function __construct()
     {
         $dbOptions = [
-            'host' => '172.16.238.12',
+            'host' => 'localhost',
             'dbname' => 'crm',
             'user' => 'root',
-            'password' => ''
+            'password' => 'root'
         ];
         try {
             $this->pdo = new \PDO(
