@@ -103,12 +103,14 @@ class Client extends ActiveRecordEntity
         if (empty($arrayFields['lastName'])) {
             throw new InvalidArgumentException('Не передана фамилия');
         }
+
         if (mb_strlen($arrayFields['name']) > 50) {
             throw new InvalidArgumentException('В имени большое количество символов');
         }
         if (mb_strlen($arrayFields['lastName']) > 50) {
             throw new InvalidArgumentException('Фамилия содержит большое количество символов');
         }
+        $arrayFields['name'] =trim($arrayFields['name']);
         if (!preg_match('/^[A-Za-zА-Яа-яЁё]+$/u', $arrayFields['name'])) {
             throw new InvalidArgumentException('В имени некоректные символы');
         }
@@ -129,21 +131,21 @@ class Client extends ActiveRecordEntity
         if (empty($arrayFields['email'])) {
             throw new InvalidArgumentException('Не передан email');
         }
-        if (!preg_match('/^[a-zA-Z0-9\.@]+$/m', $arrayFields['email'])){
-         throw new InvalidArgumentException('Недопустимые символы в email'.$arrayFields['email']);
+        if (!preg_match('/^[a-zA-Z0-9\.@_-]+$/m', $arrayFields['email'])){
+         throw new InvalidArgumentException('Недопустимые символы в email '.$arrayFields['email']);
         }
 
         $request = new Client();
-        $request->setName(trim($arrayFields['name']));
+        $request->setName($arrayFields['name']);
         $request->setLastName(trim($arrayFields['lastName']));
         $request->setPhone(trim($arrayFields['phone']));
         $request->setEmail(trim($arrayFields['email']));
-        $request->insert();
+        $request->save();
     }
     public static function addComment(array $fields, User $user)
     {
         $comment = Client::getByID($fields['id_comment']);
-        $comment->setComment($fields['comment']);
+        $comment->setComment(str_replace('|', ' ',$fields['comment']) );
         $comment->save();
 //        return $comment;
     }

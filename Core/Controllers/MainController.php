@@ -10,6 +10,6 @@ class MainController extends AbstractController
     }
     public function done():void
     {
-        $this->view->renderHtml('main/home.php');
+        $this->view->renderHtml('main/done.php');
     }
 }

@@ -1,5 +1,5 @@
 <?php include __DIR__.'/../header.php'; ?>
-
+<a class="btn btn-light" href="/manager">Вход на сайт</a>
 <h1>Оставьте заявку</h1>
     <?php if (!empty($error)):?>
     <p class="alert alert-danger"><?= $error?></p>
